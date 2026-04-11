@@ -28,15 +28,15 @@ const Dashboard = ({ logs }) => {
 </button>
       {/* Chart 1: Valence (Happiness) */}
       <div className="glass-panel">
-        <h3 style={{ color: '#bc13fe' }}>Valence (Pleasantness)</h3>
+        <h3 style={{ color: 'var(--accent-secondary)' }}>Valence (Pleasantness)</h3>
         <div style={{ height: '200px', width: '100%' }}>
           <ResponsiveContainer>
             <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="date" stroke="#666" hide />
-              <YAxis stroke="#666" />
-              <Tooltip contentStyle={{ backgroundColor: '#0a0a12', border: '1px solid #333' }} />
-              <Line type="monotone" dataKey="valence" stroke="#bc13fe" strokeWidth={3} dot={{r: 4, fill: '#bc13fe'}} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-soft)" />
+              <XAxis dataKey="date" stroke="var(--text-soft)" hide />
+              <YAxis stroke="var(--text-soft)" />
+              <Tooltip contentStyle={{ backgroundColor: '#0a0a12', border: '1px solid var(--border-soft)' }} />
+              <Line type="monotone" dataKey="valence" stroke="var(--accent-secondary)" strokeWidth={3} dot={{r: 4, fill: 'var(--accent-secondary)'}} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -44,15 +44,15 @@ const Dashboard = ({ logs }) => {
 
       {/* Chart 2: Energy (Arousal) */}
       <div className="glass-panel">
-        <h3 style={{ color: '#00f3ff' }}>Energy Levels</h3>
+        <h3 style={{ color: 'var(--accent-primary)' }}>Energy Levels</h3>
         <div style={{ height: '200px', width: '100%' }}>
           <ResponsiveContainer>
             <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="date" stroke="#666" hide />
-              <YAxis stroke="#666" />
-              <Tooltip contentStyle={{ backgroundColor: '#0a0a12', border: '1px solid #333' }} />
-              <Line type="monotone" dataKey="energy" stroke="#00f3ff" strokeWidth={3} dot={{r: 4, fill: '#00f3ff'}} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-soft)" />
+              <XAxis dataKey="date" stroke="var(--text-soft)" hide />
+              <YAxis stroke="var(--text-soft)" />
+              <Tooltip contentStyle={{ backgroundColor: '#0a0a12', border: '1px solid var(--border-soft)' }} />
+              <Line type="monotone" dataKey="energy" stroke="var(--accent-primary)" strokeWidth={3} dot={{r: 4, fill: 'var(--accent-primary)'}} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -61,14 +61,14 @@ const Dashboard = ({ logs }) => {
       {/* Stats Card */}
       <div className="glass-panel" style={{ gridColumn: '1 / -1', display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
         <div style={{ textAlign: 'center' }}>
-          <span style={{ display: 'block', fontSize: '2rem', fontWeight: 'bold', color: '#fff' }}>{logs.length}</span>
-          <span style={{ color: '#888' }}>Total Check-ins</span>
+          <span style={{ display: 'block', fontSize: '2rem', fontWeight: 'bold', color: '#000' }}>{logs.length}</span>
+          <span style={{ color: 'var(--text-muted)' }}>Total Check-ins</span>
         </div>
         <div style={{ textAlign: 'center' }}>
-          <span style={{ display: 'block', fontSize: '2rem', fontWeight: 'bold', color: '#00f3ff' }}>
+          <span style={{ display: 'block', fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-primary)' }}>
             {logs.length > 0 ? (logs.reduce((acc, curr) => acc + curr.valence, 0) / logs.length).toFixed(1) : 0}
           </span>
-          <span style={{ color: '#888' }}>Avg. Valence</span>
+          <span style={{ color: 'var(--text-muted)' }}>Avg. Valence</span>
         </div>
       </div>
     </div>

@@ -61,18 +61,23 @@ function App() {
 
   // 3. MAIN APPLICATION LAYOUT
   return (
-    <div className="app-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="app-container" style={{  maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "20px",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column" }}>
       
       {/* --- HEADER --- */}
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', paddingBottom: '20px', borderBottom: '1px solid var(--border-soft)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           {/* Rō acts as the Logo Icon here */}
           <RoMascot mode="idle" size="normal" />
           <div>
-            <h1 style={{ fontSize: '2rem', background: 'linear-gradient(to right, #00f3ff, #bc13fe)', WebkitBackgroundClip: 'text', color: 'transparent', margin: 0, letterSpacing: '-1px' }}>
+            <h1 style={{ fontSize: '2rem', WebkitBackgroundClip: 'text', color: "var(--accent-primary)", margin: 0, letterSpacing: '-1px' }}>
               MINDSCAPE
             </h1>
-            <span style={{ fontSize: '0.8rem', color: '#666', letterSpacing: '2px', textTransform: 'uppercase' }}>System Active</span>
+            <span style={{ fontSize: '0.8rem',  color: "var(--text-muted)", letterSpacing: '2px', textTransform: 'uppercase' }}>System Active</span>
           </div>
         </div>
         
@@ -80,7 +85,7 @@ function App() {
           <NavBtn icon={<Activity size={18} />} label="Dashboard" active={view === 'dashboard'} onClick={() => setView('dashboard')} />
           <NavBtn icon={<BrainCircuit size={18} />} label="Check In" active={view === 'checkin'} onClick={() => setView('checkin')} />
           <NavBtn icon={<BookOpen size={18} />} label="Journal" active={view === 'journal'} onClick={() => setView('journal')} />
-          <div style={{ width: '1px', background: '#333', margin: '0 10px' }}></div>
+          <div style={{ width: '1px', background: 'var(--border-soft)', margin: '0 10px' }}></div>
           <NavBtn icon={<LogOut size={18} />} label="Log Out" onClick={() => setView('landing')} />
         </nav>
       </header>
@@ -94,9 +99,9 @@ function App() {
       </main>
 
       {/* --- ETHICS FOOTER (Required for Mental Health Projects) --- */}
-      <footer style={{ marginTop: '60px', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '20px', textAlign: 'center', color: '#555', fontSize: '0.8rem' }}>
+      <footer style={{ marginTop: '60px', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '20px', textAlign: 'center', color: 'var(--text-soft)', fontSize: '0.8rem' }}>
         <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '5px' }}>
-          <HeartHandshake size={14} color="#555" /> 
+          <HeartHandshake size={14} color="var(--text-soft)" /> 
           MindScape is an AI-assisted self-reflection tool, not a medical device.
         </p>
         <p>
@@ -111,26 +116,26 @@ function App() {
 // --- SUB-COMPONENTS ---
 
 const NavBtn = ({ icon, label, active, onClick }) => (
-  <button 
+  <button
     onClick={onClick}
     style={{
-      background: active ? 'rgba(0, 243, 255, 0.1)' : 'transparent',
-      border: '1px solid',
-      borderColor: active ? 'rgba(0, 243, 255, 0.2)' : 'transparent',
-      color: active ? '#00f3ff' : '#888',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      padding: '8px 16px',
-      borderRadius: '30px',
-      cursor: 'pointer',
-      transition: 'all 0.3s',
-      fontWeight: '500',
-      fontSize: '0.9rem'
+      background: active ? "rgba(253, 121, 121, 0.14)" : "transparent",
+      border: "1px solid",
+      borderColor: active ? "rgba(253, 121, 121, 0.25)" : "transparent",
+      color: active ? "var(--accent-primary)" : "var(--text-muted)",
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      padding: "8px 16px",
+      borderRadius: "30px",
+      cursor: "pointer",
+      transition: "all 0.3s",
+      fontWeight: 500,
+      fontSize: "0.9rem",
     }}
   >
-    {icon} {label}
+    {icon}
+    {label}
   </button>
 );
-
 export default App;

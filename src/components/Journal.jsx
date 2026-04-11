@@ -108,7 +108,7 @@ const Journal = ({ onStartBreathing }) => {
           <RoMascot mode={roMode} size="normal" />
           <div>
             <h2 style={{ margin: 0 }}>Neural Log</h2>
-            <p style={{ margin: 0, color: '#888', fontSize: '0.9rem' }}>
+            <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem' }}>
               {isListening ? "Listening to your voice..." : (roMode === 'thinking' ? "Processing patterns..." : "Write freely. Analysis is private.")}
             </p>
           </div>
@@ -124,10 +124,10 @@ const Journal = ({ onStartBreathing }) => {
     width: '100%',
     boxSizing: 'border-box', /* <--- THIS IS THE FIX */
     height: '140px',
-    background: 'rgba(0,0,0,0.3)',
-    border: `1px solid ${isListening ? '#ff0055' : '#333'}`,
+    background: 'rgba(255,255,255,0.65)',
+    border: `1px solid ${isListening ? '#ff0055' : 'var(--border-soft)'}`,
     borderRadius: '12px',
-    color: '#fff',
+    color: '#000',
     padding: '15px',
     paddingRight: '60px', /* Space for mic button */
     resize: 'none',
@@ -153,7 +153,7 @@ const Journal = ({ onStartBreathing }) => {
               borderRadius: '50%',
               width: '40px',
               height: '40px',
-              color: isListening ? '#ff0055' : '#fff',
+              color: isListening ? '#ff0055' : '#000',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -177,11 +177,11 @@ const Journal = ({ onStartBreathing }) => {
             marginTop: '25px', 
             padding: '20px', 
             background: 'rgba(255,255,255,0.03)', 
-            borderLeft: `4px solid ${roMode === 'comfort' ? '#ff0055' : (roMode === 'excited' ? '#00ff9d' : '#00f3ff')}`, 
+            borderLeft: `4px solid ${roMode === 'comfort' ? '#ff0055' : (roMode === 'excited' ? '#00ff9d' : 'var(--accent-primary)')}`, 
             borderRadius: '0 12px 12px 0', 
             animation: 'fadeIn 0.5s' 
           }}>
-            <h4 style={{ margin: '0 0 10px 0', color: roMode === 'comfort' ? '#ff0055' : '#fff' }}>
+            <h4 style={{ margin: '0 0 10px 0', color: roMode === 'comfort' ? '#ff0055' : '#000' }}>
               Rō's Insight
             </h4>
             <p style={{ lineHeight: '1.6', fontSize: '1.05rem' }}>{analysis.feedback}</p>
@@ -192,9 +192,9 @@ const Journal = ({ onStartBreathing }) => {
                 onClick={onStartBreathing} 
                 style={{ 
                   marginTop: '15px', 
-                  background: 'linear-gradient(45deg, #ff0055, #bc13fe)', 
+                  background: 'linear-gradient(45deg, #ff0055, var(--accent-secondary))', 
                   border: 'none', 
-                  color: '#fff', 
+                  color: '#000', 
                   padding: '12px 24px', 
                   borderRadius: '30px', 
                   cursor: 'pointer', 
@@ -215,18 +215,18 @@ const Journal = ({ onStartBreathing }) => {
       {/* --- HISTORY LIST --- */}
       {history.length > 0 && (
         <div style={{ animation: 'fadeIn 1s' }}>
-          <h3 style={{ borderBottom: '1px solid #333', paddingBottom: '15px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#888' }}>
+          <h3 style={{ borderBottom: '1px solid var(--border-soft)', paddingBottom: '15px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)' }}>
             <Clock size={20} /> Past Insights
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             {history.map(log => (
-              <div key={log.id} className="glass-panel" style={{ padding: '20px', borderLeft: log.score < 0 ? '4px solid #ff0055' : '4px solid #00f3ff' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.85rem', color: '#888' }}>
+              <div key={log.id} className="glass-panel" style={{ padding: '20px', borderLeft: log.score < 0 ? '4px solid #ff0055' : '4px solid var(--accent-primary)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                   <span>{log.date}</span>
-                  <span style={{ color: log.score < 0 ? '#ff0055' : '#00f3ff' }}>Score: {log.score}</span>
+                  <span style={{ color: log.score < 0 ? '#ff0055' : 'var(--accent-primary)' }}>Score: {log.score}</span>
                 </div>
                 <p style={{ margin: 0, fontStyle: 'italic', color: '#ddd', lineHeight: '1.5' }}>"{log.text}"</p>
-                <div style={{ marginTop: '10px', fontSize: '0.9rem', color: '#888aa', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '10px' }}>
+                <div style={{ marginTop: '10px', fontSize: '0.9rem', color: 'var(--text-muted)aa', borderTop: '1px solid var(--border-soft)', paddingTop: '10px' }}>
                   AI: {log.feedback}
                 </div>
               </div>
