@@ -33,6 +33,7 @@ The app combines structured mood logging with free-form journaling and lightweig
 src/
 ├── App.jsx
 ├── index.css
+├── main.jsx
 └── components/
     ├── Auth.jsx
     ├── Dashboard.jsx
