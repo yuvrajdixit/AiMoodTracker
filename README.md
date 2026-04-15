@@ -48,19 +48,19 @@ The main app controls screen routing with local React state and renders differen
 ## How It Works
 
 ### 1. Landing and access
-Users first see the landing page and then move into the authentication screen through an `onEnter` callback.[4][8] The auth screen simulates login before transferring control back to the main application shell through `onLogin`.
+Users first see the landing page and then move into the authentication screen through an `onEnter` callback. The auth screen simulates login before transferring control back to the main application shell through `onLogin`.
 
 ### 2. Mood logging
-The mood check-in screen captures emotional state through two axes: **valence** and **energy**.[1] Users can also attach context tags, and each submission is saved into the log list before redirecting back to the dashboard.
+The mood check-in screen captures emotional state through two axes: **valence** and **energy**. Users can also attach context tags, and each submission is saved into the log list before redirecting back to the dashboard.
 
 ### 3. Journal reflection
-The journal allows users to write or dictate entries and then analyzes the text with the `sentiment` library.[2] Based on the score, the app responds with a supportive message and may recommend a breathing intervention when negative affect is detected.
+The journal allows users to write or dictate entries and then analyzes the text with the `sentiment` library. Based on the score, the app responds with a supportive message and may recommend a breathing intervention when negative affect is detected.
 
 ### 4. Regulation support
-Zen Mode provides a focused breathing experience using a timed inhale-hold-exhale-hold loop to support calm and regulation.[3] It is triggered from the journal when an entry suggests the user may benefit from decompression.
+Zen Mode provides a focused breathing experience using a timed inhale-hold-exhale-hold loop to support calm and regulation. It is triggered from the journal when an entry suggests the user may benefit from decompression.
 
 ### 5. Dashboard and export
-The dashboard visualizes log trends with a line chart and offers export functionality by downloading saved logs as JSON.[6] When no logs exist, it falls back to sample data for display.
+The dashboard visualizes log trends with a line chart and offers export functionality by downloading saved logs as JSON. When no logs exist, it falls back to sample data for display.
 
 ## Installation
 
