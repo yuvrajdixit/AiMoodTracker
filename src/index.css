@@ -7,8 +7,7 @@
   --accent-primary: #FD7979;
   --accent-secondary: #FDACAC;
 
-  --neon-blue: #FD7979;
-  --neon-purple: #FDACAC;
+
 
   --text-main: #6E4B4B;
   --text-muted: #9A7272;
@@ -93,8 +92,8 @@ body {
 
 /* Rō's Core Pulsing (Breathing) */
 @keyframes core-pulse {
-  0%, 100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 20px var(--neon-blue); }
-  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 40px var(--neon-blue); }
+  0%, 100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 20px rgb(0, 200, 255); }
+  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 40px rgb(0, 200, 255); }
 }
 
 /* Rō's Thinking Mode */
@@ -131,16 +130,16 @@ body {
   width: 50%;
   height: 50%;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--neon-blue));
-  box-shadow: 0 0 30px var(--neon-blue);
+  background: radial-gradient(circle at 30% 30%, #fff, rgb(0, 200, 255));
+  box-shadow: 0 0 30px rgb(0, 200, 255);
   z-index: 5;
   transition: all 0.5s ease;
 }
 
 /* State: Thinking (Purple Swirl) */
 .ro-core.thinking {
-  background: radial-gradient(circle at 30% 30%, #fff, var(--neon-purple));
-  box-shadow: 0 0 50px var(--neon-purple);
+  background: radial-gradient(circle at 30% 30%, #fff, rgb(92, 0, 128));
+  box-shadow: 0 0 50px rgb(92, 0, 128);
   animation: core-pulse 0.5s infinite alternate;
 }
 
@@ -166,7 +165,7 @@ h1 {
 /* Ensure glass panels on landing page hover nicely */
 .landing-container .glass-panel:hover {
   transform: translateY(-5px);
-  border-color: var(--neon-purple);
+  border-color: rgb(92, 0, 128);
   box-shadow: 0 10px 40px rgba(188, 19, 254, 0.15);
 }
 
