@@ -80,7 +80,7 @@ const MoodCheckIn = ({ onSave }) => {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '40px', textAlign: 'left' }}>
         <div>
           <label style={{ display: 'block', marginBottom: '10px', color: 'var(--accent-secondary)' }}>Valence (Mood)</label>
-          <input type="range" min="-5" max="5" value={valence} onChange={(e) => setValence(parseInt(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent-secondary)' }} />
+          <input type="range" min="-5" max="5" value={valence} onChange={(e) => setValence(parseInt(e.target.value))} style={{ width: '100%', accentColor: 'var(--accent-primary)' }} />
         </div>
         <div>
           <label style={{ display: 'block', marginBottom: '10px', color: 'var(--accent-primary)' }}>Arousal (Energy)</label>
