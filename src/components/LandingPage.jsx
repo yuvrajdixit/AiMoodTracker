@@ -30,30 +30,30 @@ const LandingPage = ({ onEnter }) => {
           <div style={{ 
             display: 'inline-block', 
             padding: '8px 16px', 
-            background: 'rgba(188, 19, 254, 0.1)', 
-            border: '1px solid #bc13fe', 
+            background: 'rgba(239, 200, 255, 0.1)', 
+            border: '1px solid var(--accent-secondary)', 
             borderRadius: '20px', 
-            color: '#bc13fe',
+            color: 'var(--accent-secondary)',
             fontWeight: 'bold',
             fontSize: '0.9rem',
             marginBottom: '20px'
           }}>
-            • AI-POWERED PSYCHOLOGY
+            AI-POWERED PSYCHOLOGY
           </div>
           
           <h1 style={{ 
             fontSize: '4.5rem', 
             lineHeight: '1.1', 
             margin: '0 0 20px 0',
-            background: 'linear-gradient(to bottom right, #fff, #888)',
+            background: 'linear-gradient(to bottom right, #FD7979, var(--text-muted))',
             WebkitBackgroundClip: 'text',
             color: 'transparent' 
           }}>
             Master Your <br />
-            <span style={{ color: '#00f3ff', WebkitTextFillColor: '#00f3ff' }}>Internal Weather.</span>
+            <span style={{ color: 'var(--accent-primary)', WebkitTextFillColor: 'var(--accent-primary)' }}>Internal Weather.</span>
           </h1>
           
-          <p style={{ fontSize: '1.2rem', color: '#888aa', lineHeight: '1.6', marginBottom: '40px' }}>
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)aa', lineHeight: '1.6', marginBottom: '40px' }}>
             MindScape combines <strong>CBT principles</strong> with <strong>Sentiment AI</strong> to help you track, understand, and regulate your emotions. No fluff. Just data-driven clarity.
           </p>
 
@@ -82,20 +82,20 @@ const LandingPage = ({ onEnter }) => {
 
       {/* --- FEATURES / SCIENCE SECTION --- */}
       <section style={{ padding: '80px 5%' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '60px' }}>The Science of <span style={{ color: '#bc13fe' }}>Clarity</span></h2>
+        <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '60px' }}>The Science of <span style={{ color: 'var(--accent-secondary)' }}>Clarity</span></h2>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
           
           {/* Card 1 */}
           <FeatureCard 
-            icon={<Activity size={40} color="#00f3ff" />}
+            icon={<Activity size={40} color="var(--accent-primary)" />}
             title="Bi-Dimensional Tracking"
             desc="We don't just ask if you're happy. We measure Valence and Arousal to map your exact emotional coordinates based on Russell's Circumplex Model."
           />
 
           {/* Card 2 */}
           <FeatureCard 
-            icon={<BrainCircuit size={40} color="#bc13fe" />}
+            icon={<BrainCircuit size={40} color="var(--accent-secondary)" />}
             title="CBT AI Analysis"
             desc="Our Neural Log uses Natural Language Processing to detect cognitive distortions and offer immediate, evidence-based reframing prompts."
           />
@@ -121,7 +121,7 @@ const FeatureCard = ({ icon, title, desc }) => (
       {icon}
     </div>
     <h3 style={{ fontSize: '1.5rem', marginBottom: '15px' }}>{title}</h3>
-    <p style={{ color: '#888aa', lineHeight: '1.6' }}>{desc}</p>
+    <p style={{ color: 'var(--text-muted)aa', lineHeight: '1.6' }}>{desc}</p>
   </div>
 );
 

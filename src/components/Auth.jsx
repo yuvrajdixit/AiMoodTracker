@@ -35,14 +35,17 @@ const Auth = ({ onLogin }) => {
       <div className="glass-panel" style={{ maxWidth: '400px', width: '100%', padding: '40px', position: 'relative', overflow: 'hidden' }}>
         
         {/* Decorative Background Glow */}
-        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: isLogin ? 'rgba(0, 243, 255, 0.2)' : 'rgba(188, 19, 254, 0.2)', filter: 'blur(50px)', borderRadius: '50%', zIndex: 0 }} />
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: isLogin
+      ? "rgba(253, 121, 121, 0.18)"
+      : "rgba(253, 172, 172, 0.22)",
+    filter: "blur(50px)", borderRadius: '50%', zIndex: 0 }} />
 
         <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginBottom: '30px' }}>
           <RoMascot mode={isLoading ? "thinking" : "idle"} size="normal" />
           <h2 style={{ margin: '15px 0 5px 0', fontSize: '1.8rem' }}>
             {isLogin ? 'Welcome Back' : 'Initialize Profile'}
           </h2>
-          <p style={{ color: '#888', margin: 0, fontSize: '0.9rem' }}>
+          <p style={{ color: "var(--text-muted)", margin: 0, fontSize: '0.9rem' }}>
             {isLogin ? 'Authenticate to access your Neural Log.' : 'Begin your journey to mental clarity.'}
           </p>
         </div>
@@ -52,7 +55,7 @@ const Auth = ({ onLogin }) => {
           {!isLogin && (
             <div style={{ marginBottom: '15px' }}>
               <div style={{ position: 'relative' }}>
-                <User size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#888' }} />
+                <User size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                 <input 
                   type="text" 
                   placeholder="Designation / Name" 
@@ -67,7 +70,7 @@ const Auth = ({ onLogin }) => {
 
           <div style={{ marginBottom: '15px' }}>
             <div style={{ position: 'relative' }}>
-              <Mail size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#888' }} />
+              <Mail size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="email" 
                 placeholder="Secure Email" 
@@ -81,7 +84,7 @@ const Auth = ({ onLogin }) => {
 
           <div style={{ marginBottom: '25px' }}>
             <div style={{ position: 'relative' }}>
-              <Lock size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#888' }} />
+              <Lock size={18} style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="password" 
                 placeholder="Passcode" 
@@ -105,8 +108,8 @@ const Auth = ({ onLogin }) => {
               alignItems: 'center', 
               gap: '10px',
               background: isLoading ? 'transparent' : '',
-              borderColor: isLoading ? '#555' : '',
-              color: isLoading ? '#888' : ''
+              borderColor: isLoading ? 'var(--text-soft)' : '',
+              color: isLoading ? 'var(--text-muted)' : ''
             }}
           >
             {isLoading ? (
@@ -121,7 +124,7 @@ const Auth = ({ onLogin }) => {
           <button 
             onClick={() => setIsLogin(!isLogin)}
             type="button"
-            style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '0.9rem', textDecoration: 'underline' }}
+            style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '0.9rem', textDecoration: 'underline' }}
           >
             {isLogin ? "No access key? Initialize one." : "Already have access? Authenticate."}
           </button>

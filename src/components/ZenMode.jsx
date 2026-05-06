@@ -33,7 +33,7 @@ const ZenMode = ({ onClose }) => {
       display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
       animation: 'fadeIn 1s ease'
     }}>
-      <button onClick={onClose} style={{ position: 'absolute', top: '40px', right: '40px', background: 'transparent', border: 'none', color: '#555', cursor: 'pointer' }}>
+      <button onClick={onClose} style={{ position: 'absolute', top: '40px', right: '40px', background: 'transparent', border: 'none', color: 'var(--text-soft)', cursor: 'pointer' }}>
         <X size={40} />
       </button>
 
@@ -41,10 +41,10 @@ const ZenMode = ({ onClose }) => {
         <div className="inner-glow"></div>
       </div>
 
-      <h1 style={{ marginTop: '60px', fontSize: '3rem', color: '#00f3ff', fontWeight: '300', letterSpacing: '5px' }}>
+      <h1 style={{ marginTop: '60px', fontSize: '3rem', color: 'var(--accent-primary)', fontWeight: '300', letterSpacing: '5px' }}>
         {text}
       </h1>
-      <p style={{ color: '#555' }}>Focus on the movement.</p>
+      <p style={{ color: 'var(--text-soft)' }}>Focus on the movement.</p>
 
       <style>{`
         .breathing-circle {
