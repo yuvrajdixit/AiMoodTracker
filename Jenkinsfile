@@ -59,11 +59,11 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 bat '''
-                aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin %ECR_REPO%
+                "C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 833822973078.dkr.ecr.eu-north-1.amazonaws.com
 
-                docker tag %IMAGE_NAME%:%IMAGE_TAG% %ECR_REPO%:%IMAGE_TAG%
+                docker tag aimoodtracker:%BUILD_NUMBER% 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
 
-                docker push %ECR_REPO%:%IMAGE_TAG%
+                docker push 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
                 '''
             }
         }
@@ -71,7 +71,7 @@ pipeline {
         stage('Deploy ECS') {
             steps {
                 bat '''
-                aws ecs update-service ^
+                "C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" ecs update-service ^
                 --cluster aimoodtracker-cluster ^
                 --service aimoodtracker-service ^
                 --force-new-deployment ^
