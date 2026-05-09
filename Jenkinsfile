@@ -51,13 +51,13 @@ pipeline {
 
         stage('Check Docker') {
             steps {
-                bat 'docker --version'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" --version'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t %IMAGE_NAME%:%IMAGE_TAG% .'
             }
         }
     }
