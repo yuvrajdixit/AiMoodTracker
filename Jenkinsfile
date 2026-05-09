@@ -60,10 +60,22 @@ pipeline {
             steps {
                 bat '''
                 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin %ECR_REPO%
-                
+
                 docker tag %IMAGE_NAME%:%IMAGE_TAG% %ECR_REPO%:%IMAGE_TAG%
-                
+
                 docker push %ECR_REPO%:%IMAGE_TAG%
+                '''
+            }
+        }
+
+        stage('Deploy ECS') {
+            steps {
+                bat '''
+                aws ecs update-service ^
+                --cluster aimoodtracker-cluster ^
+                --service aimoodtracker-service ^
+                --force-new-deployment ^
+                --region eu-north-1
                 '''
             }
         }
