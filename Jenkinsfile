@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         nodejs "NodeJS"
-        sonarRunner "SonarScanner"
     }
 
     environment {
@@ -41,7 +40,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat 'sonar-scanner.bat'
+                    bat '"C:\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat"'
                 }
             }
         }
