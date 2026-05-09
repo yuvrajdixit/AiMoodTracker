@@ -8,6 +8,7 @@ pipeline {
     environment {
         IMAGE_NAME = "aimoodtracker"
         IMAGE_TAG = "${BUILD_NUMBER}"
+        ECR_REPO = "833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker"
     }
 
     stages {
@@ -49,15 +50,21 @@ pipeline {
             }
         }
 
-        stage('Check Docker') {
-            steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" --version'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t %IMAGE_NAME%:%IMAGE_TAG% .'
+            }
+        }
+
+        stage('Push to ECR') {
+            steps {
+                bat '''
+                aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin %ECR_REPO%
+                
+                docker tag %IMAGE_NAME%:%IMAGE_TAG% %ECR_REPO%:%IMAGE_TAG%
+                
+                docker push %ECR_REPO%:%IMAGE_TAG%
+                '''
             }
         }
     }
