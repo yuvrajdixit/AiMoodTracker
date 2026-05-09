@@ -18,6 +18,13 @@ pipeline {
             }
         }
 
+        stage('Check Node') {
+            steps {
+                bat 'node -v'
+                bat 'npm -v'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 bat 'npm ci'
