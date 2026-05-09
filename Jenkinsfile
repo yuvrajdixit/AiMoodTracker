@@ -40,7 +40,12 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat '"C:\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat"'
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                        bat """
+                        C:\\sonar-scanner-5.0.1.3006-windows\\bin\\sonar-scanner.bat ^
+                        -Dsonar.token=%SONAR_TOKEN%
+                        """
+                    }
                 }
             }
         }
