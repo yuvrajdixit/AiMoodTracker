@@ -57,16 +57,16 @@ pipeline {
         }
 
         stage('Push to ECR') {
-            steps {
-                bat '''
-                "C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 833822973078.dkr.ecr.eu-north-1.amazonaws.com
-
-                docker tag aimoodtracker:%BUILD_NUMBER% 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
-
-                docker push 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
-                '''
-            }
+        steps {
+            bat '''
+            "C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" ecr get-login-password --region eu-north-1 | "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" login --username AWS --password-stdin 833822973078.dkr.ecr.eu-north-1.amazonaws.com
+            
+            "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" tag aimoodtracker:%BUILD_NUMBER% 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
+            
+            "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" push 833822973078.dkr.ecr.eu-north-1.amazonaws.com/aimoodtracker:%BUILD_NUMBER%
+            '''
         }
+    }
 
         stage('Deploy ECS') {
             steps {
