@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "NodeJS"
+    }
+
     environment {
         IMAGE_NAME = "aimoodtracker"
         IMAGE_TAG = "${BUILD_NUMBER}"
@@ -45,6 +49,5 @@ pipeline {
                 bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
             }
         }
-
     }
 }
